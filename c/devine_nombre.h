@@ -11,7 +11,6 @@ void devine_nombre(int i, int s)
     int n = 0;
     char prompt[50];
     snprintf(prompt, 50, "Je devine %i, est-ce +, - ou = ?", g);
-    printf("%s\n", prompt);
     affiche_bulle(prompt);
     char r = getchar();
     while (r != '=')
