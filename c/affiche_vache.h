@@ -1,16 +1,29 @@
-#include <stdio.h>
+#ifndef __AFFICHE_VACHE_H__
+#define __AFFICHE_VACHE_H__
+
 #include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
-// #include <unistd.h> sleep
+#include "animation.h"
 
 #define TAILLE_VACHE 123
 
-void clear() { printf("\033[H\033[J"); }
-void fin() {
+// Pour garder afficher une vache jusqu'à ce qu'ENTER soit pressé
+void fin()
+{
     printf("Appuyez sur ENTREE pour quitter");
     getchar();
     clear();
     exit(0);
+}
+
+char *relative_path(char *path_to_main, char *relative_file_path)
+{
+    // int total_size = strlen(path_to_main) + strlen(relative_file_path) + 1;
+    static char path_to_file[100];
+    strcpy(path_to_file, path_to_main);
+    strcat(path_to_file, relative_file_path);
+    return path_to_file;
 }
 
 // Lis un fichier texte et renvoie un tableau "formatté"
@@ -37,12 +50,16 @@ char *lire_f_vache(FILE *f)
 }
 
 // Affiche le contenu du fichier cow_help.txt qui contient le manuel d'utilisation du programme
-void afficher_aide()
+void afficher_aide(char *path_to_main)
 {
-    FILE *f = fopen("ressources/cow_help.txt", "r");
+    char dir[] = "/ressources/cow_help.txt";
+
+    char *path = relative_path(path_to_main, dir);
+
+    FILE *f = fopen(path, "r");
     if (f == NULL)
     {
-        perror("ressources/cow_help.txt");
+        perror(path);
         exit(1);
     }
     clear();
@@ -53,6 +70,7 @@ void afficher_aide()
     fclose(f);
     fin();
 }
+
 // Affiche la bulle de texte de la vache par défaut
 void affiche_bulle(char t[])
 {
@@ -68,12 +86,15 @@ void affiche_bulle(char t[])
 }
 
 // Affiche la vache par défaut en remplassant pis et yeux si option argument donné
-void afficher_vache_defaut(char *yeux, char *pis, char t[])
+void afficher_vache_defaut(char *path_to_main, char *yeux, char *pis, char t[])
 {
-    FILE *f = fopen("ressources/cow_defaut.txt", "r");
+    char dir[] = "ressources/cow_defaut.txt";
+    char *path = relative_path(path_to_main, dir);
+
+    FILE *f = fopen(path, "r");
     if (f == NULL)
     {
-        perror("ressources/cow_defaut.txt");
+        perror(path);
         exit(1);
     }
     char *V = lire_f_vache(f);
@@ -100,7 +121,7 @@ void afficher_vache_defaut(char *yeux, char *pis, char t[])
     fin();
 }
 
-void afficher_vache_speciale(const char modele[])
+void afficher_vache_speciale(char *path_to_main, const char modele[])
 {
     char dir[50];
 
@@ -109,10 +130,13 @@ void afficher_vache_speciale(const char modele[])
 
     if (strcmp(modele, "assise") == 0)
         strcpy(dir, "ressources/cow_assise.txt");
-    FILE *f = fopen(dir, "r");
+
+    char *path = relative_path(path_to_main, dir);
+
+    FILE *f = fopen(path, "r");
     if (f == NULL)
     {
-        perror(dir);
+        perror(path);
         exit(1);
     }
 
@@ -125,42 +149,4 @@ void afficher_vache_speciale(const char modele[])
     fin();
 }
 
-int main(int argc, char const *argv[])
-{
-    char yeux = 'o';
-    char pis = 'w';
-    char text[100] = "Bonjour !";
-
-    // Lecture des arguments
-    for (int i = 1; i < argc; i++)
-    {
-        // Si l'argument est une option
-        if (argv[i][0] == '-')
-        {
-            // Pour afficher le manuel
-            if (argv[i][1] == 'h')
-                afficher_aide();
-
-            // Pour afficher une vache spéciale
-            if (argv[i][1] == 's')
-                afficher_vache_speciale(argv[i + 1]);
-
-            // Si modèle par défaut on peut changer yeux et pis
-            if (argv[i][1] == 'y')
-                yeux = argv[i][3];
-
-            if (argv[i][1] == 'p')
-                pis = argv[i][3];
-
-            if (argv[i][1] == 't')
-            {
-                strcpy(text, argv[i + 1]);
-                afficher_vache_defaut(&yeux, &pis, text);
-            }
-        }
-    }
-
-    afficher_vache_defaut(&yeux, &pis, text);
-
-    return 0;
-}
+#endif
