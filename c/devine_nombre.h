@@ -11,23 +11,31 @@ void devine_nombre(int i, int s)
     int n = 0;
     char prompt[50];
     char r;
-    do
+    while (r != '=')
     {
-        g = (i + s) / 2;
-        snprintf(prompt, 50, "Je devine %i, est-ce +, - ou = ?", g);
-        affiche_bulle(prompt);
-        r = getchar();
-        n++;
-        switch (r)
+        if (r != '\n')
         {
-        case '+':
-            i = g;
-            break;
-        case '-':
-            s = g;
-            break;
+            g = (i + s) / 2;
+            snprintf(prompt, 50, "Je devine %i, est-ce +, - ou = ?", g);
+            affiche_bulle(prompt);
+            scanf("%s", &r);
+            switch (r)
+            {
+            case '+':
+                n++;
+                i = g;
+                break;
+            case '-':
+                n++;
+                s = g;
+                break;
+            case '=':
+                break;
+            default:
+                puts("Caractère invalide. Réessayez.");
+            }
         }
-    } while (r != '=');
+    }
     printf("Nombre deviné en %i essais !\nMerci d'avoir joué.\n", n);
     exit(0);
 }
