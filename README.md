@@ -1,4 +1,5 @@
 # PROJET COW
+Projet final d'INF 203 de Côme VINCENT.
 
 <details>
   <summary>Sommaire</summary>
