@@ -1,4 +1,5 @@
 <div id='top'></div>
+
 # PROJET COW
 Projet final d'INF 203 de Côme VINCENT.
 
@@ -12,7 +13,7 @@ Projet final d'INF 203 de Côme VINCENT.
 </details>
 
 <!-- EXECUTION -->
-## EXECUTION :
+## Execution :
 Pour exécuter cow, téléchargez le fichier binary nommé main et lancez le à partir d'une invite de commande.
 
 OPTIONS POSSIBLES :
@@ -26,7 +27,7 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 * -h : (suffisante) affiche le manuel du programme (mais vous le saviez, puisque vous êtes là).
 
 <!-- MODELES SPECIAUX -->
-## MODELES SPECIAUX :
+## Modèles spéciaux :
 
 * portrait : vous avez toujours voulu embellir le mur de votre salon, et la vache a gracieuseument proposé d'y mettre sa tête en gros plan. Voilà la photo qu'elle vous donne. Art par Joan Stark.
 * assise : la vache vous a marché sur le pied et vous n'êtes pas content. Vous la faite s'assoir pour la réprimander. Art par Joan Stark.
@@ -34,7 +35,7 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 * canadienne : très polie ! Art par Veronica Karlsson.
 
 <!-- EXEMPLES -->
-## EXEMPLES :
+## Exemples :
 
 * ```sh ./cow```                       -> vache par défaut
 * ```sh ./cow -y:^```                  -> vache par défaut avec ^ à la place des yeux
