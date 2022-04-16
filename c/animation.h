@@ -3,5 +3,6 @@
 #include <stdio.h>
 
 void clear() { printf("\033[H\033[J"); }
+void gotoxy(x, y) { printf(" \033[% d;% dH", x, y); }
 
 #endif
