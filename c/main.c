@@ -33,7 +33,7 @@ int main(int argc, char const *argv[])
 
             // Pour deviner un nombre
             if (argv[i][1] == 'd')
-                devine_nombre(0, 15);
+                devine_nombre(path, 0, 15, &yeux, &pis);
 
             // Si modèle par défaut on peut changer yeux et pis
             if (argv[i][1] == 'y')

@@ -8,15 +8,6 @@
 
 #define TAILLE_VACHE 123
 
-// Pour garder afficher une vache jusqu'à ce qu'ENTER soit pressé
-void fin()
-{
-    printf("Appuyez sur ENTREE pour quitter");
-    getchar();
-    clear();
-    exit(0);
-}
-
 char *relative_path(char *path_to_main, char *relative_file_path)
 {
     // int total_size = strlen(path_to_main) + strlen(relative_file_path) + 1;
@@ -68,7 +59,10 @@ void afficher_aide(char *path_to_main)
         putc(c, stdout);
     printf("\n");
     fclose(f);
-    fin();
+    printf("Appuyez sur ENTREE pour quitter");
+    getchar();
+    clear();
+    exit(0);
 }
 
 // Affiche la bulle de texte de la vache par défaut
@@ -118,7 +112,6 @@ void afficher_vache_defaut(char *path_to_main, char *yeux, char *pis, char t[])
     }
     printf("\n");
     fclose(f);
-    fin();
 }
 
 void afficher_vache_speciale(char *path_to_main, const char modele[])
@@ -146,7 +139,10 @@ void afficher_vache_speciale(char *path_to_main, const char modele[])
     printf("\n");
 
     fclose(f);
-    fin();
+    printf("Appuyez sur ENTREE pour quitter");
+    getchar();
+    clear();
+    exit(0);
 }
 
 #endif
