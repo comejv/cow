@@ -1,3 +1,4 @@
+<div id='top'></div>
 # PROJET COW
 Projet final d'INF 203 de Côme VINCENT.
 
@@ -6,7 +7,7 @@ Projet final d'INF 203 de Côme VINCENT.
   <ol>
     <li><a href="#execution">Execution</a></li>
     <li><a href="#modeles-speciaux">Modèles spéciaux</a></li>
-    <li><a href="#examples">Exemples</a></li>
+    <li><a href="#exemples">Exemples</a></li>
   </ol>
 </details>
 
@@ -42,3 +43,5 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 * ```sh ./cow -t "Je suis morte !"```  -> vache qui dit "Je suis morte !"
 * ```sh ./cow -d```                    -> lance le jeu de devinette
 * ```sh ./cow -h -s assise```          -> affiche l'aide seulement car l'option -h est suffisante
+
+<p align="right">(<a href="#top">back to top</a>)</p>
