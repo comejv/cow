@@ -1,0 +1,43 @@
+#ifndef __DEVINE_NOMBRE_H__
+#define __DEVINE_NOMBRE_H__
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "affiche_vache.h"
+
+void devine_nombre(int i, int s)
+{
+    int g;
+    int n = 0;
+    char prompt[50];
+    char r;
+    while (r != '=')
+    {
+        if (r != '\n')
+        {
+            g = (i + s) / 2;
+            snprintf(prompt, 50, "Je devine %i, est-ce +, - ou = ?", g);
+            affiche_bulle(prompt);
+            scanf("%s", &r);
+            switch (r)
+            {
+            case '+':
+                n++;
+                i = g;
+                break;
+            case '-':
+                n++;
+                s = g;
+                break;
+            case '=':
+                break;
+            default:
+                puts("Caractère invalide. Réessayez.");
+            }
+        }
+    }
+    printf("Nombre deviné en %i essais !\nMerci d'avoir joué.\n", n);
+    exit(0);
+}
+
+#endif
