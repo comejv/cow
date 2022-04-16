@@ -124,6 +124,12 @@ void afficher_vache_speciale(char *path_to_main, const char modele[])
     if (strcmp(modele, "assise") == 0)
         strcpy(dir, "ressources/cow_assise.txt");
 
+    if (strcmp(modele, "sauvage") == 0)
+        strcpy(dir, "ressources/cow_sauvage.txt");
+
+    if (strcmp(modele, "canadienne") == 0)
+        strcpy(dir, "ressources/cow_canadienne.txt");
+
     char *path = relative_path(path_to_main, dir);
 
     FILE *f = fopen(path, "r");

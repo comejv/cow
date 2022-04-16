@@ -20,9 +20,13 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 
 MODELES SPECIAUX :
 
-portrait : vous avez toujours voulu embellir le mur de votre salon, et la vache a gracieuseument proposé d'y mettre sa tête en gros plan. Voilà la photo qu'elle vous donne.
+portrait : vous avez toujours voulu embellir le mur de votre salon, et la vache a gracieuseument proposé d'y mettre sa tête en gros plan. Voilà la photo qu'elle vous donne. Art par Joan Stark.
 
-assise : la vache vous a marché sur le pied et vous n'êtes pas content. Vous la faite s'assoir pour la réprimander.
+assise : la vache vous a marché sur le pied et vous n'êtes pas content. Vous la faite s'assoir pour la réprimander. Art par Joan Stark.
+
+sauvage : elle brise les attentes sociétales. Art par mic & dwb.
+
+canadienne : très polie ! Art par Veronica Karlsson.
 
 EXEMPLES :
 
