@@ -47,4 +47,4 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 * ```sh ./cow -d``` <dd>-> lance le jeu de devinette
 * ```sh ./cow -h -s assise``` <dd>-> affiche l'aide seulement car l'option -h est suffisante
 </div>
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">Haut du Readme</a>)</p>
