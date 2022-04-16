@@ -39,12 +39,12 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 
 ## Exemples :
 
-* ```sh ./cow```                       -> vache par défaut
-* ```sh ./cow -y:^```                  -> vache par défaut avec ^ à la place des yeux
-* ```sh ./cow -y:x -p:y```             -> vache par défaut avec x pour yeux et y pour pis
-* ```sh ./cow -s portrait```           -> vache spéciale portrait
-* ```sh ./cow -t "Je suis morte !"```  -> vache qui dit "Je suis morte !"
-* ```sh ./cow -d```                    -> lance le jeu de devinette
-* ```sh ./cow -h -s assise```          -> affiche l'aide seulement car l'option -h est suffisante
+* ```sh ./cow``` <dd>-> vache par défaut
+* ```sh ./cow -y:^``` <dd>-> vache par défaut avec ^ à la place des yeux
+* ```sh ./cow -y:x -p:y``` <dd>-> vache par défaut avec x pour yeux et y pour pis
+* ```sh ./cow -s portrait``` <dd>-> vache spéciale portrait
+* ```sh ./cow -t "Je suis morte !"``` <dd>-> vache qui dit "Je suis morte !"
+* ```sh ./cow -d``` <dd>-> lance le jeu de devinette
+* ```sh ./cow -h -s assise``` <dd>-> affiche l'aide seulement car l'option -h est suffisante
 </div>
 <p align="right">(<a href="#top">back to top</a>)</p>
