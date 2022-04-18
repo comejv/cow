@@ -3,6 +3,7 @@
 #include "affiche_vache.h"
 #include "animation.h"
 
+// Comme il est utilisé par toutes les fonctions, on passe le chemin d'appel en externe
 char ext_path[50];
 
 int main(int argc, char const *argv[])
@@ -13,12 +14,12 @@ int main(int argc, char const *argv[])
 
     // Pour obtenir le chemin d'appel de main
     int path_size = strlen(argv[0]) - 4;
-    char path[path_size];
-    strncpy(path, argv[0], path_size + 1);
-    path[path_size] = '\0';
-    if (path[0] == '.' || path[0] == '~')
-        memmove(path, path + 2, path_size);
-    strcpy(ext_path, path);
+    char temp_path[path_size];
+    strncpy(temp_path, argv[0], path_size + 1);
+    temp_path[path_size] = '\0';
+    if (temp_path[0] == '.' || temp_path[0] == '~')
+        memmove(temp_path, temp_path + 2, path_size);
+    strcpy(ext_path, temp_path);
 
     // Lecture des arguments
     for (int i = 1; i < argc; i++)
