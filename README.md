@@ -9,6 +9,7 @@ Projet final d'INF 203 de Côme VINCENT.
     <li><a href="#execution">Execution</a></li>
     <li><a href="#modeles-speciaux">Modèles spéciaux</a></li>
     <li><a href="#exemples">Exemples</a></li>
+    <li><a href="#bash">Bash</a></li>
   </ol>
 </details>
 <div id="execution">
@@ -50,6 +51,7 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 * ```sh ./cow -h -s assise``` <dd>-> affiche l'aide seulement car l'option -h est suffisante
 </div>
 <p align="right">(<a href="#top">Haut du Readme</a>)</p>
+<div id="bash">
 
 ## Bash
 
@@ -61,3 +63,4 @@ Quelques exercices en shell pour utiliser la commande cowsay avec divers paramè
 * College -> Affiche la suite fibonacci jusqu'à $1
 * University -> Affiche les nombres premiers jusqu'à $1
 * Smart -> Remplace les yeux de la vache par le résultat d'une expression donnée en $1
+</div>
