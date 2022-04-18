@@ -7,7 +7,6 @@
 
 void devine_nombre(int i, int s, char *yeux, char *pis)
 {
-    extern char ext_path[];
     int g;
     int n = 0;
     char prompt[50];

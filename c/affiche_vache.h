@@ -8,9 +8,10 @@
 
 #define TAILLE_VACHE 123
 
+extern char ext_path[];
+
 char *relative_path(char *relative_file_path)
 {
-    extern char ext_path[];
     // int total_size = strlen(ext_path) + strlen(relative_file_path) + 1;
     static char path_to_file[100];
     strcpy(path_to_file, ext_path);
@@ -44,9 +45,7 @@ char *lire_f_vache(FILE *f)
 // Affiche le contenu du fichier cow_help.txt qui contient le manuel d'utilisation du programme
 void afficher_aide()
 {
-    extern char ext_path[];
     char dir[] = "/ressources/cow_help.txt";
-
     char *path = relative_path(dir);
 
     FILE *f = fopen(path, "r");
@@ -84,7 +83,6 @@ void affiche_bulle(char t[])
 // Affiche la vache par défaut en remplassant pis et yeux si option argument donné
 void afficher_vache_defaut(char *yeux, char *pis, char t[])
 {
-    extern char ext_path[];
     char dir[] = "ressources/cow_defaut.txt";
     char *path = relative_path(dir);
 
@@ -119,7 +117,6 @@ void afficher_vache_defaut(char *yeux, char *pis, char t[])
 
 void afficher_vache_speciale(const char modele[])
 {
-    extern char ext_path[];
     char dir[50];
 
     if (strcmp(modele, "portrait") == 0)
