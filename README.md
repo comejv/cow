@@ -13,7 +13,9 @@ Projet final d'INF 203 de Côme VINCENT.
 </details>
 <div id="execution">
 
-## Execution :
+## C
+
+### Execution :
 Pour exécuter cow, téléchargez le fichier binary nommé main et lancez le à partir d'une invite de commande.
 
 OPTIONS POSSIBLES :
@@ -28,7 +30,7 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 </div>
 <div id="modeles-speciaux">
 
-## Modèles spéciaux :
+### Modèles spéciaux :
 
 * portrait : vous avez toujours voulu embellir le mur de votre salon, et la vache a gracieuseument proposé d'y mettre sa tête en gros plan. Voilà la photo qu'elle vous donne. Art par Joan Stark.
 * assise : la vache vous a marché sur le pied et vous n'êtes pas content. Vous la faite s'assoir pour la réprimander. Art par Joan Stark.
@@ -37,7 +39,7 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 </div>
 <div id="exemples">
 
-## Exemples :
+### Exemples :
 
 * ```sh ./cow``` <dd>-> vache par défaut
 * ```sh ./cow -y:^``` <dd>-> vache par défaut avec ^ à la place des yeux
@@ -48,3 +50,14 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 * ```sh ./cow -h -s assise``` <dd>-> affiche l'aide seulement car l'option -h est suffisante
 </div>
 <p align="right">(<a href="#top">Haut du Readme</a>)</p>
+
+## Bash
+
+Quelques exercices en shell pour utiliser la commande cowsay avec divers paramètres.
+
+* Kindergarten -> Cowsay prononce les chiffres de 1 à 10
+* Primary school -> Compte jusqu'à $1
+* Highschool -> Affiche les carrés de 1 à $1
+* College -> Affiche la suite fibonacci jusqu'à $1
+* University -> Affiche les nombres premiers jusqu'à $1
+* Smart -> Remplace les yeux de la vache par le résultat d'une expression donnée en $1

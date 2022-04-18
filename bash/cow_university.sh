@@ -1,3 +1,5 @@
+# Affiche les nombres premiers jusqu'à $1
+
 # On iter de 1 à i=$1
 for ((i = 1; i <= $1; i++)); do
 	premier=true
