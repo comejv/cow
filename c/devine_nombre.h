@@ -5,8 +5,9 @@
 #include <stdlib.h>
 #include "affiche_vache.h"
 
-void devine_nombre(char *path_to_main, int i, int s, char *yeux, char *pis)
+void devine_nombre(int i, int s, char *yeux, char *pis)
 {
+    extern char ext_path[];
     int g;
     int n = 0;
     char prompt[50];
@@ -17,7 +18,7 @@ void devine_nombre(char *path_to_main, int i, int s, char *yeux, char *pis)
         {
             g = (i + s) / 2;
             snprintf(prompt, 50, "Je devine %i, est-ce +, - ou = ?", g);
-            afficher_vache_defaut(path_to_main, yeux, pis, prompt);
+            afficher_vache_defaut(yeux, pis, prompt);
             scanf("%s", &r);
             switch (r)
             {

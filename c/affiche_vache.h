@@ -8,11 +8,12 @@
 
 #define TAILLE_VACHE 123
 
-char *relative_path(char *path_to_main, char *relative_file_path)
+char *relative_path(char *relative_file_path)
 {
-    // int total_size = strlen(path_to_main) + strlen(relative_file_path) + 1;
+    extern char ext_path[];
+    // int total_size = strlen(ext_path) + strlen(relative_file_path) + 1;
     static char path_to_file[100];
-    strcpy(path_to_file, path_to_main);
+    strcpy(path_to_file, ext_path);
     strcat(path_to_file, relative_file_path);
     return path_to_file;
 }
@@ -41,11 +42,12 @@ char *lire_f_vache(FILE *f)
 }
 
 // Affiche le contenu du fichier cow_help.txt qui contient le manuel d'utilisation du programme
-void afficher_aide(char *path_to_main)
+void afficher_aide()
 {
+    extern char ext_path[];
     char dir[] = "/ressources/cow_help.txt";
 
-    char *path = relative_path(path_to_main, dir);
+    char *path = relative_path(dir);
 
     FILE *f = fopen(path, "r");
     if (f == NULL)
@@ -80,10 +82,11 @@ void affiche_bulle(char t[])
 }
 
 // Affiche la vache par défaut en remplassant pis et yeux si option argument donné
-void afficher_vache_defaut(char *path_to_main, char *yeux, char *pis, char t[])
+void afficher_vache_defaut(char *yeux, char *pis, char t[])
 {
+    extern char ext_path[];
     char dir[] = "ressources/cow_defaut.txt";
-    char *path = relative_path(path_to_main, dir);
+    char *path = relative_path(dir);
 
     FILE *f = fopen(path, "r");
     if (f == NULL)
@@ -114,8 +117,9 @@ void afficher_vache_defaut(char *path_to_main, char *yeux, char *pis, char t[])
     fclose(f);
 }
 
-void afficher_vache_speciale(char *path_to_main, const char modele[])
+void afficher_vache_speciale(const char modele[])
 {
+    extern char ext_path[];
     char dir[50];
 
     if (strcmp(modele, "portrait") == 0)
@@ -130,7 +134,7 @@ void afficher_vache_speciale(char *path_to_main, const char modele[])
     if (strcmp(modele, "canadienne") == 0)
         strcpy(dir, "ressources/cow_canadienne.txt");
 
-    char *path = relative_path(path_to_main, dir);
+    char *path = relative_path(dir);
 
     FILE *f = fopen(path, "r");
     if (f == NULL)

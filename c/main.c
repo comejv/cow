@@ -3,6 +3,8 @@
 #include "affiche_vache.h"
 #include "animation.h"
 
+char ext_path[50];
+
 int main(int argc, char const *argv[])
 {
     char yeux = 'o';
@@ -16,6 +18,7 @@ int main(int argc, char const *argv[])
     path[path_size] = '\0';
     if (path[0] == '.' || path[0] == '~')
         memmove(path, path + 2, path_size);
+    strcpy(ext_path, path);
 
     // Lecture des arguments
     for (int i = 1; i < argc; i++)
@@ -25,15 +28,15 @@ int main(int argc, char const *argv[])
         {
             // Pour afficher le manuel
             if (argv[i][1] == 'h')
-                afficher_aide(path);
+                afficher_aide();
 
             // Pour afficher une vache spéciale
             if (argv[i][1] == 's')
-                afficher_vache_speciale(path, argv[i + 1]);
+                afficher_vache_speciale(argv[i + 1]);
 
             // Pour deviner un nombre
             if (argv[i][1] == 'd')
-                devine_nombre(path, 0, 15, &yeux, &pis);
+                devine_nombre(0, 15, &yeux, &pis);
 
             // Si modèle par défaut on peut changer yeux et pis
             if (argv[i][1] == 'y')
@@ -45,13 +48,13 @@ int main(int argc, char const *argv[])
             if (argv[i][1] == 't')
             {
                 strcpy(text, argv[i + 1]);
-                afficher_vache_defaut(path, &yeux, &pis, text);
+                afficher_vache_defaut(&yeux, &pis, text);
             }
         }
     }
 
     // Si aucun argument donné, on affiche la vache par défaut
-    afficher_vache_defaut(path, &yeux, &pis, text);
+    afficher_vache_defaut(&yeux, &pis, text);
 
     return 0;
 }
