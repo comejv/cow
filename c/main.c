@@ -59,8 +59,8 @@ int main(int argc, char const *argv[])
             case 't':
                 strcpy(text, argv[i + 1]);
                 afficher_vache_defaut(&yeux, &pis, text);
-                break;
-            
+                return 0;
+
             default:
                 snprintf(opterr, 21, "Option -%c inconnue.\n", argv[i][1]);
                 fputs(opterr, stderr);
