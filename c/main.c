@@ -11,6 +11,7 @@ int main(int argc, char const *argv[])
     char yeux = 'o';
     char pis = 'w';
     char text[100] = "Bonjour !";
+    char opterr[21];
 
     // Pour obtenir le chemin d'appel de main
     int path_size = strlen(argv[0]) - 4;
@@ -22,6 +23,7 @@ int main(int argc, char const *argv[])
     strcpy(ext_path, temp_path);
 
     // Lecture des arguments
+    // (J'aurais pu utiliser optget de unistd.h mais je ne l'ai découvert qu'après)
     for (int i = 1; i < argc; i++)
     {
         // Si l'argument est une option
@@ -57,6 +59,11 @@ int main(int argc, char const *argv[])
             case 't':
                 strcpy(text, argv[i + 1]);
                 afficher_vache_defaut(&yeux, &pis, text);
+                break;
+            
+            default:
+                snprintf(opterr, 21, "Option -%c inconnue.\n", argv[i][1]);
+                fputs(opterr, stderr);
                 break;
             }
         }
