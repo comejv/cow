@@ -10,7 +10,7 @@ int main(int argc, char const *argv[])
 {
     char yeux = 'o';
     char pis = 'w';
-    char text[100] = "Bonjour !";
+    char text[200] = "Bonjour !";
     char opterr[21];
 
     // Pour obtenir le chemin d'appel de main

@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "animation.h"
 
 #define TAILLE_VACHE 123
@@ -67,17 +68,48 @@ void afficher_aide()
 }
 
 // Affiche la bulle de texte de la vache par défaut
-void affiche_bulle(char t[])
+int affiche_bulle(char t[], int s_length, int animation)
 {
-    int s = strlen(t);
+    // Nombre lignes
+    int n_lignes = s_length / 50 + 1;
+
+    gotoxy(0, 0);
+    // Affichage cadre haut
     printf(" ");
-    for (int i = 0; i < s + 2; i++)
+    for (int i = 0; i < (((s_length + 2) < (52)) ? (s_length + 2) : (52)); i++)
         printf("_");
-    printf("\n< %s >\n", t);
-    printf(" ");
-    for (int i = 0; i < s + 2; i++)
+    // Si pas d'animation
+    if (animation == 0)
+    {
+        for (int i = 0; i < n_lignes; i++)
+            // On affiche 50 char à la fois
+            printf("\n| %.50s |\n", t + (i * 50));
+        printf(" ");
+    }
+    // Si animation
+    else
+    {
+        gotoxy(2, 3);
+        for (int i = 0; i < s_length; i++)
+        {
+            //! Gestion multiligne marche pas du tout
+            // On affiche 1 char à la fois avec 0.1 seconde entre chaque
+            printf("%c", t[i]);
+            // Retour à la ligne si bord de cadre
+            if (i % 50 == 0 && i != 0)
+                printf("\033[1B\033[50D");
+            fflush(stdout);
+            nanosleep((const struct timespec[]){{0, 100000000L}}, NULL);
+        }
+        printf("\033[1E ");
+    }
+    // Affichage cadre bas
+    // Min entre taille length et 50
+    for (int i = 0; i < (((s_length + 2)<(52))?(s_length + 2):(52)); i++)
         printf("‾");
-    printf("\n");
+    fflush(stdout);
+    gotoxy(n_lignes + 3, 0);
+    return n_lignes;
 }
 
 // Affiche la vache par défaut en remplassant pis et yeux si option argument donné
@@ -95,7 +127,16 @@ void afficher_vache_defaut(char *yeux, char *pis, char t[])
     char *V = lire_f_vache(f);
 
     clear();
-    affiche_bulle(t);
+
+    // Affichage d'une bulle vide
+    int t_length = strlen(t);
+    char s_vide[t_length + 1];
+    for (int i = 0; i < t_length; i++)
+        s_vide[i] = ' ';
+    s_vide[t_length] = '\0';
+    affiche_bulle(s_vide, t_length, 0);
+
+    // Affichage de la vache
     for (int i = 0; i < TAILLE_VACHE; i++)
     {
         switch (V[i])
@@ -113,6 +154,10 @@ void afficher_vache_defaut(char *yeux, char *pis, char t[])
     }
     printf("\n");
     fclose(f);
+
+    // Animation du texte
+    int l = affiche_bulle(t, t_length, 1);
+    gotoxy(l + 8, 0);
 }
 
 void afficher_vache_speciale(const char modele[])
