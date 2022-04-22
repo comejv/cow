@@ -27,29 +27,37 @@ int main(int argc, char const *argv[])
         // Si l'argument est une option
         if (argv[i][0] == '-')
         {
+            switch (argv[i][1])
+            {
             // Pour afficher le manuel
-            if (argv[i][1] == 'h')
+            case 'h':
                 afficher_aide();
+                break;
 
             // Pour afficher une vache spéciale
-            if (argv[i][1] == 's')
+            case 's':
                 afficher_vache_speciale(argv[i + 1]);
+                break;
 
             // Pour deviner un nombre
-            if (argv[i][1] == 'd')
+            case 'd':
                 devine_nombre(0, 15, &yeux, &pis);
+                break;
 
             // Si modèle par défaut on peut changer yeux et pis
-            if (argv[i][1] == 'y')
+            case 'y':
                 yeux = argv[i][3];
+                break;
 
-            if (argv[i][1] == 'p')
+            case 'p':
                 pis = argv[i][3];
+                break;
 
-            if (argv[i][1] == 't')
-            {
+            // Pour préciser le texte de la bulle
+            case 't':
                 strcpy(text, argv[i + 1]);
                 afficher_vache_defaut(&yeux, &pis, text);
+                break;
             }
         }
     }
