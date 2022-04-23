@@ -20,7 +20,7 @@ Projet final d'INF 203 de Côme VINCENT.
 ### Execution :
 Pour exécuter cow, téléchargez le fichier binary nommé main et lancez le à partir d'une invite de commande ou compilez le vous-même avec la commande :<dd> ```sh gcc -O2 affiche_vache.h animation.h devine_nombre.h main.c -o main```
 
-OPTIONS POSSIBLES :
+#### OPTIONS POSSIBLES :
 Notez qu'une option est qualifiée de "suffisante" si son utilisation seule permet au programme de s'éxécuter normalement. Toutes les options qui la suive seront ignorées.
 
 * -y : permet de choisir le charactère utilisé pour les yeux
