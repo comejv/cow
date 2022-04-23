@@ -8,7 +8,7 @@
 void devine_nombre(int i, int s, char *yeux, char *pis)
 {
     int g;
-    int n = 0;
+    int n = 1;
     char prompt[50];
     char r;
     while (r != '=')
