@@ -71,7 +71,7 @@ void afficher_aide()
 int affiche_bulle(char t[], int s_length, int animation)
 {
     // Nombre lignes
-    int n_lignes = s_length / 50 + 1;
+    int n_lignes = s_length / 50 +1;
 
     // Affichage cadre haut
     gotoxy(0, 0);
@@ -85,9 +85,9 @@ int affiche_bulle(char t[], int s_length, int animation)
     if (animation == 0)
     {
         //? Pourquoi -1 nécessaire en plus d'inégalité stricte ?!
-        for (int i = 0; i < n_lignes - 1; i++)
+        for (int i = 0; i < n_lignes-1; i++)
             // On affiche 50 char à la fois
-            printf("| %.50s |%i\n", t + (i * 50), i);
+            printf("| %.50s |\n", t + (i * 50));
         putchar(' ');
     }
     // Si animation
@@ -144,7 +144,7 @@ void afficher_vache_defaut(char *yeux, char *pis, char t[])
     // Affichage d'une bulle vide
     int t_length = strlen(t);
     int mult_50 = t_length;
-    if (t_length > 50)
+    if (t_length >= 50)
         mult_50 = 50 * (t_length / 50 + 1);
     char s_vide[mult_50];
     for (int i = 0; i < mult_50; i++)
