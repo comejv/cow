@@ -73,42 +73,55 @@ int affiche_bulle(char t[], int s_length, int animation)
     // Nombre lignes
     int n_lignes = s_length / 50 + 1;
 
-    gotoxy(0, 0);
     // Affichage cadre haut
+    gotoxy(0, 0);
     printf(" ");
+    // min(s_length, 52)
     for (int i = 0; i < (((s_length + 2) < (52)) ? (s_length + 2) : (52)); i++)
         printf("_");
+    printf("\033[1E");
+
     // Si pas d'animation
     if (animation == 0)
     {
-        for (int i = 0; i < n_lignes; i++)
+        //? Pourquoi -1 nécessaire en plus d'inégalité stricte ?!
+        for (int i = 0; i < n_lignes - 1; i++)
             // On affiche 50 char à la fois
-            printf("\n| %.50s |\n", t + (i * 50));
-        printf(" ");
+            printf("| %.50s |%i\n", t + (i * 50), i);
+        putchar(' ');
     }
     // Si animation
     else
     {
-        gotoxy(2, 3);
-        for (int i = 0; i < s_length; i++)
+        gotoxy(2, 0);
+        for (int l = 0; l < n_lignes; l++)
         {
-            //! Gestion multiligne marche pas du tout
-            // On affiche 1 char à la fois avec 0.1 seconde entre chaque
-            printf("%c", t[i]);
-            // Retour à la ligne si bord de cadre
-            if (i % 50 == 0 && i != 0)
-                printf("\033[1B\033[50D");
-            fflush(stdout);
-            nanosleep((const struct timespec[]){{0, 100000000L}}, NULL);
+            for (int c = 0; c < 52; c++)
+            {
+                if (c == 0)
+                    printf("| ");
+                else if (c == 51)
+                    printf(" |");
+                else
+                {
+                    if (c - 1 + (50 * l) >= s_length && s_length > 50)
+                        putchar(' ');
+                    else
+                        printf("%c", t[c - 1 + (50 * l)]);
+                    fflush(stdout);
+                    nanosleep((const struct timespec[]){{0, 50000000L}}, NULL);
+                }
+            }
+            printf("\033[1E");
         }
-        printf("\033[1E ");
+        putchar(' ');
     }
     // Affichage cadre bas
-    // Min entre taille length et 50
-    for (int i = 0; i < (((s_length + 2)<(52))?(s_length + 2):(52)); i++)
+    // Min entre taille length et 52
+    for (int i = 0; i < (((s_length + 2) < (52)) ? (s_length + 2) : (52)); i++)
         printf("‾");
+    printf("\033[1E");
     fflush(stdout);
-    gotoxy(n_lignes + 3, 0);
     return n_lignes;
 }
 
@@ -130,11 +143,14 @@ void afficher_vache_defaut(char *yeux, char *pis, char t[])
 
     // Affichage d'une bulle vide
     int t_length = strlen(t);
-    char s_vide[t_length + 1];
-    for (int i = 0; i < t_length; i++)
+    int mult_50 = t_length;
+    if (t_length > 50)
+        mult_50 = 50 * (t_length / 50 + 1);
+    char s_vide[mult_50];
+    for (int i = 0; i < mult_50; i++)
         s_vide[i] = ' ';
-    s_vide[t_length] = '\0';
-    affiche_bulle(s_vide, t_length, 0);
+    s_vide[mult_50] = '\0';
+    affiche_bulle(s_vide, mult_50, 0);
 
     // Affichage de la vache
     for (int i = 0; i < TAILLE_VACHE; i++)
