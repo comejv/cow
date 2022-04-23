@@ -71,23 +71,26 @@ void afficher_aide()
 int affiche_bulle(char t[], int s_length, int animation)
 {
     // Nombre lignes
-    int n_lignes = s_length / 50 +1;
+    int n_lignes = 1;
+    if (s_length > 50)
+        // Divise par 51 car sinon si s_length%50 = 0 une ligne de trop
+        n_lignes = s_length / 51 + 1;
 
+    // min(s_length, 52)
+    int min = ((s_length + 2) < (52)) ? (s_length + 2) : (52);
     // Affichage cadre haut
     gotoxy(0, 0);
-    printf(" ");
-    // min(s_length, 52)
-    for (int i = 0; i < (((s_length + 2) < (52)) ? (s_length + 2) : (52)); i++)
+    putchar(' ');
+    for (int i = 0; i < min; i++)
         printf("_");
     printf("\033[1E");
 
     // Si pas d'animation
     if (animation == 0)
     {
-        //? Pourquoi -1 nécessaire en plus d'inégalité stricte ?!
-        for (int i = 0; i < n_lignes-1; i++)
+        for (int l = 0; l < n_lignes; l++)
             // On affiche 50 char à la fois
-            printf("| %.50s |\n", t + (i * 50));
+            printf("| %.50s |\n", t + (l * 50));
         putchar(' ');
     }
     // Si animation
@@ -96,7 +99,7 @@ int affiche_bulle(char t[], int s_length, int animation)
         gotoxy(2, 0);
         for (int l = 0; l < n_lignes; l++)
         {
-            for (int c = 0; c < 52; c++)
+            for (int c = 0; c < min; c++)
             {
                 if (c == 0)
                     printf("| ");
@@ -107,9 +110,11 @@ int affiche_bulle(char t[], int s_length, int animation)
                     if (c - 1 + (50 * l) >= s_length && s_length > 50)
                         putchar(' ');
                     else
+                    {
                         printf("%c", t[c - 1 + (50 * l)]);
+                        nanosleep((const struct timespec[]){{0, 50000000L}}, NULL);
+                    }
                     fflush(stdout);
-                    nanosleep((const struct timespec[]){{0, 50000000L}}, NULL);
                 }
             }
             printf("\033[1E");
@@ -117,8 +122,7 @@ int affiche_bulle(char t[], int s_length, int animation)
         putchar(' ');
     }
     // Affichage cadre bas
-    // Min entre taille length et 52
-    for (int i = 0; i < (((s_length + 2) < (52)) ? (s_length + 2) : (52)); i++)
+    for (int i = 0; i < min; i++)
         printf("‾");
     printf("\033[1E");
     fflush(stdout);
@@ -144,7 +148,7 @@ void afficher_vache_defaut(char *yeux, char *pis, char t[])
     // Affichage d'une bulle vide
     int t_length = strlen(t);
     int mult_50 = t_length;
-    if (t_length >= 50)
+    if (t_length > 50)
         mult_50 = 50 * (t_length / 50 + 1);
     char s_vide[mult_50];
     for (int i = 0; i < mult_50; i++)
