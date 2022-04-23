@@ -57,14 +57,14 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 
 ### Exemples :
 
-* ```sh ./cow``` <dd>-> vache par défaut
-* ```sh ./cow -y ^``` <dd>-> vache par défaut avec ^ à la place des yeux
-* ```sh ./cow -y x -p y``` <dd>-> vache par défaut avec x pour yeux et y pour pis
-* ```sh ./cow -s portrait``` <dd>-> vache spéciale portrait
-* ```sh ./cow -t "Je suis morte !"``` <dd>-> vache qui dit "Je suis morte !"
+* ```./cow``` <dd>-> vache par défaut
+* ```./cow -y ^``` <dd>-> vache par défaut avec ^ à la place des yeux
+* ```./cow -y x -p y``` <dd>-> vache par défaut avec x pour yeux et y pour pis
+* ```./cow -s portrait``` <dd>-> vache spéciale portrait
+* ```./cow -t "Je suis morte !"``` <dd>-> vache qui dit "Je suis morte !"
 * ```./cow -t "Bonjour." -r``` <dd>-> vache qui lit lettre par lettre le mot "Bonjour."
-* ```sh ./cow -d``` <dd>-> lance le jeu de devinette
-* ```sh ./cow -h -s assise``` <dd>-> affiche l'aide seulement car l'option -h est suffisante
+* ```./cow -d``` <dd>-> lance le jeu de devinette
+* ```./cow -h -s assise``` <dd>-> affiche l'aide seulement car l'option -h est suffisante
 </div>
 <div id="bash">
 
