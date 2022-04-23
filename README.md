@@ -7,6 +7,7 @@ Projet final d'INF 203 de Côme VINCENT.
   <summary>Sommaire</summary>
   <ol>
     <li><a href="#execution">Execution</a></li>
+    <li><a href="#options">Options</a></li>
     <li><a href="#animations-et-couleurs">Animations et couleurs</a></li>
     <li><a href="#modeles-speciaux">Modèles spéciaux</a></li>
     <li><a href="#exemples">Exemples</a></li>
@@ -19,8 +20,10 @@ Projet final d'INF 203 de Côme VINCENT.
 
 ### Execution :
 Pour exécuter cow, téléchargez le fichier binary nommé main et lancez le à partir d'une invite de commande ou compilez le vous-même avec la commande :<dd> ```sh gcc -O2 affiche_vache.h animation.h devine_nombre.h main.c -o main```
+</div>
+<div id="options">
 
-#### OPTIONS POSSIBLES :
+### Options possibles :
 Notez qu'une option est qualifiée de "suffisante" si son utilisation seule permet au programme de s'éxécuter normalement. Toutes les options qui la suive seront ignorées.
 
 * -y : permet de choisir le charactère utilisé pour les yeux
@@ -35,7 +38,7 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 </div>
 <div id="animations-et-couleurs">
 
-### ANIMATIONS ET COULEURS :
+### Animation et couleurs :
 * 0 -> (défaut) pas d'animation, couleur de base
 * 1 -> texte animé caractère par caractère
 * 2 -> texte coloré arc en ciel
