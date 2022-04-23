@@ -36,10 +36,10 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 <div id="animations-et-couleurs">
 
 ### ANIMATIONS ET COULEURS :
-* 0 <dd>-> (défaut) pas d'animation, couleur de base
-* 1 <dd>-> texte animé caractère par caractère
-* 2 <dd>-> texte coloré arc en ciel
-* 3 <dd>-> 1 et 2
+* 0 -> (défaut) pas d'animation, couleur de base
+* 1 -> texte animé caractère par caractère
+* 2 -> texte coloré arc en ciel
+* 3 -> 1 et 2
 </div>
 <div id="modeles-speciaux">
 
