@@ -27,7 +27,8 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 * -p : permet de choisir le charactère utilisé pour les pis
 * -l : permet de choisir le caractère utilisé pour la langue
 * -a : permet de choisir le type d'animation et couleurs. Voir "Animations et couleurs" pour les choix possibles.
-* -t : (suffisante) permet de choisir le texte de la bulle de la vache ("Bonjour !" par défaut). Ne prend pas en charge les caractères accentués.
+* -t : permet de choisir le texte de la bulle de la vache ("Bonjour !" par défaut). Ne prend pas en charge les caractères accentués.
+* -r : (suffisante) demande à la vache de lire le texte donné avec -t lettre par lettre.
 * -d : (suffisante) permet de jouer à un jeu de devinette avec la vache. Pensez à un nombre et guidez la vache pour qu'elle le trouve.
 * -v : (suffisante) permet de préciser un type de vache à afficher. Voir "Modèles spéciaux" pour les choix possibles.
 * -h : (suffisante) affiche le manuel du programme (mais vous le saviez, puisque vous êtes là).
@@ -57,6 +58,7 @@ ANIMATIONS ET COULEURS :
 * ```sh ./cow -y x -p y``` <dd>-> vache par défaut avec x pour yeux et y pour pis
 * ```sh ./cow -s portrait``` <dd>-> vache spéciale portrait
 * ```sh ./cow -t "Je suis morte !"``` <dd>-> vache qui dit "Je suis morte !"
+* ```./cow -t "Bonjour." -r``` <dd>-> vache qui lit lettre par lettre le mot "Bonjour."
 * ```sh ./cow -d``` <dd>-> lance le jeu de devinette
 * ```sh ./cow -h -s assise``` <dd>-> affiche l'aide seulement car l'option -h est suffisante
 </div>

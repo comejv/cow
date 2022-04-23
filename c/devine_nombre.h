@@ -17,7 +17,7 @@ void devine_nombre(int i, int s, char *yeux, char *pis, char *langue, int *anima
         {
             g = (i + s) / 2;
             snprintf(prompt, 50, "Je devine %i, est-ce +, - ou = ?", g);
-            afficher_vache_defaut(yeux, pis, langue, prompt, animation);
+            afficher_vache_defaut(yeux, pis, langue, prompt, *animation);
             scanf("%s", &r);
             switch (r)
             {

@@ -140,7 +140,7 @@ int affiche_bulle(char t[], int s_length, int animation)
 }
 
 // Affiche la vache par défaut en remplassant pis et yeux si option argument donné
-void afficher_vache_defaut(char *yeux, char *pis, char *langue, char t[], int *animation)
+void afficher_vache_defaut(char *yeux, char *pis, char *langue, char t[], int animation)
 {
     char dir[] = "ressources/cow_defaut.txt";
     char *path = relative_path(dir);
@@ -167,7 +167,7 @@ void afficher_vache_defaut(char *yeux, char *pis, char *langue, char t[], int *a
     s_vide[mult_50] = '\0';
 
     // Séléction type animation
-    switch (*animation)
+    switch (animation)
     {
     case 0:
         l = affiche_bulle(t, t_length, 0);
@@ -209,7 +209,7 @@ void afficher_vache_defaut(char *yeux, char *pis, char *langue, char t[], int *a
     fclose(f);
 
     // Animation du texte
-    l = affiche_bulle(t, t_length, *animation);
+    l = affiche_bulle(t, t_length, animation);
     gotoxy(l + 8, 0);
 }
 

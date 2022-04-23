@@ -1,6 +1,7 @@
 #include <string.h>
 #include "devine_nombre.h"
 #include "affiche_vache.h"
+#include "reading_cow.h"
 
 // Comme il est utilisé par toutes les fonctions, on passe le chemin d'appel en externe
 char ext_path[50];
@@ -48,6 +49,11 @@ int main(int argc, char const *argv[])
                 devine_nombre(0, 100, &yeux, &pis, &langue, &animation);
                 break;
 
+            // Pour apprendre à lire
+            case 'r':
+                lecture(&yeux, &pis, text);
+                break;
+
             // Si modèle par défaut on peut changer yeux et pis
             case 'y':
                 yeux = argv[i][3];
@@ -70,8 +76,7 @@ int main(int argc, char const *argv[])
             // Pour préciser le texte de la bulle
             case 't':
                 strcpy(text, argv[i + 1]);
-                afficher_vache_defaut(&yeux, &pis, &langue, text, &animation);
-                return 0;
+                break;
 
             default:
                 snprintf(opterr, 21, "Option -%c inconnue.\n", argv[i][1]);
@@ -82,7 +87,7 @@ int main(int argc, char const *argv[])
     }
 
     // Si aucun argument donné, on affiche la vache par défaut
-    afficher_vache_defaut(&yeux, &pis, &langue, text, &animation);
+    afficher_vache_defaut(&yeux, &pis, &langue, text, animation);
 
     return 0;
 }
