@@ -2,7 +2,7 @@
 #define __ANIMATION_H__
 #include <stdio.h>
 
-void clear() { printf("\033[H\033[J"); }
-void gotoxy(int x, int y) { printf("\033[%d;%df", x, y); }
+void clear() { printf("\e[H\e[J"); }
+void gotoxy(int x, int y) { printf("\e[%d;%df", x, y); }
 
 #endif

@@ -56,7 +56,7 @@ void afficher_aide()
         exit(1);
     }
     clear();
-    printf("%s\n", "\033[1mMANUEL D'UTILISATION DE COW\033[0m");
+    printf("\e[1mMANUEL D'UTILISATION DE COW\e[0m\n");
     for (char c = getc(f); c != EOF; c = getc(f))
         putc(c, stdout);
     printf("\n");
@@ -82,8 +82,8 @@ int affiche_bulle(char t[], int s_length, int animation)
     gotoxy(0, 0);
     putchar(' ');
     for (int i = 0; i < min; i++)
-        printf("_");
-    printf("\033[1E");
+        putchar('_');
+    putchar('\n');
 
     // Si pas d'animation
     if (animation == 0)
@@ -96,36 +96,34 @@ int affiche_bulle(char t[], int s_length, int animation)
     // Si animation
     else
     {
-        gotoxy(2, 0);
         for (int l = 0; l < n_lignes; l++)
         {
             for (int c = 0; c < min; c++)
             {
                 if (c == 0)
-                    printf("| ");
+                    fputs("| ", stdout);
                 else if (c == 51)
-                    printf(" |");
+                    fputs(" |", stdout);
                 else
                 {
                     if (c - 1 + (50 * l) >= s_length && s_length > 50)
                         putchar(' ');
                     else
                     {
-                        printf("%c", t[c - 1 + (50 * l)]);
+                        putchar(t[c - 1 + (50 * l)]);
                         nanosleep((const struct timespec[]){{0, 50000000L}}, NULL);
                     }
                     fflush(stdout);
                 }
             }
-            printf("\033[1E");
+            putchar('\n');
         }
         putchar(' ');
     }
     // Affichage cadre bas
     for (int i = 0; i < min; i++)
-        printf("‾");
-    printf("\033[1E");
-    fflush(stdout);
+        fputs("‾", stdout);
+    putchar('\n');
     return n_lignes;
 }
 
