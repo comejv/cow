@@ -193,7 +193,7 @@ void afficher_vache_defaut(char *yeux, char *pis, char t[], int *animation)
             break;
         case 'w':
             if (*pis == 'p')
-                fwrite(pi, 1, 2, stdout);
+                fputs(pi, stdout);
             else
                 putchar(*pis);
             break;
