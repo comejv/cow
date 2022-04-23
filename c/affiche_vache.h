@@ -189,20 +189,20 @@ void afficher_vache_defaut(char *yeux, char *pis, char t[], int *animation)
         switch (V[i])
         {
         case 'o':
-            printf("%c", *yeux);
+            putchar(*yeux);
             break;
         case 'w':
             if (*pis == 'p')
                 fwrite(pi, 1, 2, stdout);
             else
-                printf("%c", *pis);
+                putchar(*pis);
             break;
         default:
-            printf("%c", V[i]);
+            putchar(V[i]);
             break;
         }
     }
-    printf("\n");
+    putchar('\n');
     fclose(f);
 
     // Animation du texte
