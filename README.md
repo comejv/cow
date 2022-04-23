@@ -19,7 +19,7 @@ Projet final d'INF 203 de Côme VINCENT.
 <div id="execution">
 
 ### Execution :
-Pour exécuter cow, téléchargez le fichier binary nommé main et lancez le à partir d'une invite de commande ou compilez le vous-même avec la commande :<dd> ```sh gcc -O2 affiche_vache.h animation.h devine_nombre.h main.c -o main```
+Pour exécuter cow, téléchargez le fichier binary nommé main et lancez le à partir d'une invite de commande ou compilez le vous-même avec la commande :<dd> ```sh gcc -O2 affiche_vache.h reading_cow.h devine_nombre.h main.c -o main```
 </div>
 <div id="options">
 
