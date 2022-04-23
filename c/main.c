@@ -10,7 +10,7 @@ int main(int argc, char const *argv[])
 {
     char yeux = 'o';
     char pis = 'w';
-    char text[100] = "Bonjour !";
+    char text[200] = "Bonjour !";
     char opterr[21];
 
     // Pour obtenir le chemin d'appel de main
@@ -59,8 +59,8 @@ int main(int argc, char const *argv[])
             case 't':
                 strcpy(text, argv[i + 1]);
                 afficher_vache_defaut(&yeux, &pis, text);
-                break;
-            
+                return 0;
+
             default:
                 snprintf(opterr, 21, "Option -%c inconnue.\n", argv[i][1]);
                 fputs(opterr, stderr);
