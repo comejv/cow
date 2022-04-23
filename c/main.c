@@ -1,17 +1,18 @@
 #include <string.h>
 #include "devine_nombre.h"
 #include "affiche_vache.h"
-#include "animation.h"
 
 // Comme il est utilisé par toutes les fonctions, on passe le chemin d'appel en externe
 char ext_path[50];
 
 int main(int argc, char const *argv[])
 {
+    // Options par défaut
     char yeux = 'o';
     char pis = 'w';
     char text[200] = "Bonjour !";
     char opterr[21];
+    int animation = 0;
 
     // Pour obtenir le chemin d'appel de main
     int path_size = strlen(argv[0]) - 4;
@@ -43,7 +44,7 @@ int main(int argc, char const *argv[])
 
             // Pour deviner un nombre
             case 'd':
-                devine_nombre(0, 15, &yeux, &pis);
+                devine_nombre(0, 100, &yeux, &pis, &animation);
                 break;
 
             // Si modèle par défaut on peut changer yeux et pis
@@ -55,10 +56,16 @@ int main(int argc, char const *argv[])
                 pis = argv[i][3];
                 break;
 
+            // Type d'animation du texte
+            case 'a':
+                // -48 car lu comme un caractère ascii (pas entier)
+                animation = argv[i][3]-48;
+                break;
+
             // Pour préciser le texte de la bulle
             case 't':
                 strcpy(text, argv[i + 1]);
-                afficher_vache_defaut(&yeux, &pis, text);
+                afficher_vache_defaut(&yeux, &pis, text, &animation);
                 return 0;
 
             default:
@@ -70,7 +77,7 @@ int main(int argc, char const *argv[])
     }
 
     // Si aucun argument donné, on affiche la vache par défaut
-    afficher_vache_defaut(&yeux, &pis, text);
+    afficher_vache_defaut(&yeux, &pis, text, &animation);
 
     return 0;
 }
