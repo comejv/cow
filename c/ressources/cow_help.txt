@@ -3,8 +3,9 @@ Pour quitter cette page de manuel comme pour arrêter l'affichage d'une vache (s
 
 OPTIONS POSSIBLES :
 Notez qu'une option est qualifiée de "suffisante" si son utilisation seule permet au programme de s'éxécuter normalement. Toutes les options suivantes seront ignorées.
--y : permet de choisir le caractère utilisé
--p : permet de choisir le caractère utilisé
+-y : permet de choisir le caractère utilisé pour les yeux
+-p : permet de choisir le caractère utilisé pour les pis (essayez p)
+-l : permet de choisir le caractère utilisé pour la langue
 -a : permet de choisir le type d'animation et couleurs. Voir "Animations et couleurs" pour les choix possibles.
 -t : (suffisante) permet de choisir le texte de la bulle de la vache ("Bonjour !" par défaut).
 -d : (suffisante) permet de jouer à un jeu de devinette avec la vache. Pensez à un nombre et guidez la vache pour qu'elle le trouve.
@@ -25,8 +26,8 @@ canadienne : très polie ! Art par Veronica Karlsson.
 
 EXEMPLES :
 ./cow                       -> vache par défaut
-./cow -y:^                  -> vache par défaut avec ^ à la place des yeux
-./cow -y:x -p:y             -> vache par défaut avec x pour yeux et y pour pis
+./cow -y ^                  -> vache par défaut avec ^ à la place des yeux
+./cow -y x -p y             -> vache par défaut avec x pour yeux et y pour pis
 ./cow -s portrait           -> vache spéciale portrait
 ./cow -t "Je suis morte !"  -> vache qui dit "Je suis morte !"
 ./cow -d                    -> lance le jeu de devinette

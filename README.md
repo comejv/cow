@@ -23,10 +23,11 @@ Pour exécuter cow, téléchargez le fichier binary nommé main et lancez le à 
 OPTIONS POSSIBLES :
 Notez qu'une option est qualifiée de "suffisante" si son utilisation seule permet au programme de s'éxécuter normalement. Toutes les options suivantes seront ignorées.
 
-* -y : permet de choisir le charactère utilisé
-* -p : permet de choisir le charactère utilisé
-* -t : (suffisante) permet de choisir le texte de la bulle de la vache ("Bonjour !" par défaut). Ne prend pas en charge les caractères accentués.
+* -y : permet de choisir le charactère utilisé pour les yeux
+* -p : permet de choisir le charactère utilisé pour les pis
+* -l : permet de choisir le caractère utilisé pour la langue
 * -a : permet de choisir le type d'animation et couleurs. Voir "Animations et couleurs" pour les choix possibles.
+* -t : (suffisante) permet de choisir le texte de la bulle de la vache ("Bonjour !" par défaut). Ne prend pas en charge les caractères accentués.
 * -d : (suffisante) permet de jouer à un jeu de devinette avec la vache. Pensez à un nombre et guidez la vache pour qu'elle le trouve.
 * -v : (suffisante) permet de préciser un type de vache à afficher. Voir "Modèles spéciaux" pour les choix possibles.
 * -h : (suffisante) affiche le manuel du programme (mais vous le saviez, puisque vous êtes là).
@@ -52,8 +53,8 @@ ANIMATIONS ET COULEURS :
 ### Exemples :
 
 * ```sh ./cow``` <dd>-> vache par défaut
-* ```sh ./cow -y:^``` <dd>-> vache par défaut avec ^ à la place des yeux
-* ```sh ./cow -y:x -p:y``` <dd>-> vache par défaut avec x pour yeux et y pour pis
+* ```sh ./cow -y ^``` <dd>-> vache par défaut avec ^ à la place des yeux
+* ```sh ./cow -y x -p y``` <dd>-> vache par défaut avec x pour yeux et y pour pis
 * ```sh ./cow -s portrait``` <dd>-> vache spéciale portrait
 * ```sh ./cow -t "Je suis morte !"``` <dd>-> vache qui dit "Je suis morte !"
 * ```sh ./cow -d``` <dd>-> lance le jeu de devinette

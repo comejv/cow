@@ -140,7 +140,7 @@ int affiche_bulle(char t[], int s_length, int animation)
 }
 
 // Affiche la vache par défaut en remplassant pis et yeux si option argument donné
-void afficher_vache_defaut(char *yeux, char *pis, char t[], int *animation)
+void afficher_vache_defaut(char *yeux, char *pis, char *langue, char t[], int *animation)
 {
     char dir[] = "ressources/cow_defaut.txt";
     char *path = relative_path(dir);
@@ -196,6 +196,9 @@ void afficher_vache_defaut(char *yeux, char *pis, char t[], int *animation)
                 fputs(pi, stdout);
             else
                 putchar(*pis);
+            break;
+        case 'l':
+            putchar(*langue);
             break;
         default:
             putchar(V[i]);

@@ -10,6 +10,7 @@ int main(int argc, char const *argv[])
     // Options par défaut
     char yeux = 'o';
     char pis = 'w';
+    char langue = ' ';
     char text[200] = "Bonjour !";
     char opterr[21];
     int animation = 0;
@@ -44,7 +45,7 @@ int main(int argc, char const *argv[])
 
             // Pour deviner un nombre
             case 'd':
-                devine_nombre(0, 100, &yeux, &pis, &animation);
+                devine_nombre(0, 100, &yeux, &pis, &langue, &animation);
                 break;
 
             // Si modèle par défaut on peut changer yeux et pis
@@ -56,16 +57,20 @@ int main(int argc, char const *argv[])
                 pis = argv[i][3];
                 break;
 
+            case 'l':
+                langue = argv[i][3];
+                break;
+
             // Type d'animation du texte
             case 'a':
                 // -48 car lu comme un caractère ascii (pas entier)
-                animation = argv[i][3]-48;
+                animation = argv[i][3] - 48;
                 break;
 
             // Pour préciser le texte de la bulle
             case 't':
                 strcpy(text, argv[i + 1]);
-                afficher_vache_defaut(&yeux, &pis, text, &animation);
+                afficher_vache_defaut(&yeux, &pis, &langue, text, &animation);
                 return 0;
 
             default:
@@ -77,7 +82,7 @@ int main(int argc, char const *argv[])
     }
 
     // Si aucun argument donné, on affiche la vache par défaut
-    afficher_vache_defaut(&yeux, &pis, text, &animation);
+    afficher_vache_defaut(&yeux, &pis, &langue, text, &animation);
 
     return 0;
 }
