@@ -21,7 +21,7 @@ Projet final d'INF 203 de Côme VINCENT.
 Pour exécuter cow, téléchargez le fichier binary nommé main et lancez le à partir d'une invite de commande ou compilez le vous-même avec la commande :<dd> ```sh gcc -O2 affiche_vache.h animation.h devine_nombre.h main.c -o main```
 
 OPTIONS POSSIBLES :
-Notez qu'une option est qualifiée de "suffisante" si son utilisation seule permet au programme de s'éxécuter normalement. Toutes les options suivantes seront ignorées.
+Notez qu'une option est qualifiée de "suffisante" si son utilisation seule permet au programme de s'éxécuter normalement. Toutes les options qui la suive seront ignorées.
 
 * -y : permet de choisir le charactère utilisé pour les yeux
 * -p : permet de choisir le charactère utilisé pour les pis
@@ -34,7 +34,8 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 * -h : (suffisante) affiche le manuel du programme (mais vous le saviez, puisque vous êtes là).
 </div>
 <div id="animations-et-couleurs">
-ANIMATIONS ET COULEURS :
+
+### ANIMATIONS ET COULEURS :
 0   -> (défaut) pas d'animation, couleur de base
 1   -> texte animé caractère par caractère
 2   -> texte coloré arc en ciel
