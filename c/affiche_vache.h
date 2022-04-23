@@ -70,7 +70,8 @@ void afficher_aide()
     exit(0);
 }
 
-int min(int a, int b) {
+int min(int a, int b)
+{
     int c;
     (a < b) ? (c = a) : (c = b);
     return c;
@@ -97,7 +98,7 @@ int affiche_bulle(char t[], int s_length, int animation)
         {
             if (c == 0)
                 fputs("| ", stdout);
-            else if (c == min(s_length+1, 51))
+            else if (c == min(s_length + 1, 51))
                 fputs(" |", stdout);
             else
             {
@@ -182,6 +183,7 @@ void afficher_vache_defaut(char *yeux, char *pis, char t[], int *animation)
     }
 
     // Affichage de la vache
+    char *pi = "π";
     for (int i = 0; i < TAILLE_VACHE; i++)
     {
         switch (V[i])
@@ -190,7 +192,10 @@ void afficher_vache_defaut(char *yeux, char *pis, char t[], int *animation)
             printf("%c", *yeux);
             break;
         case 'w':
-            printf("%c", *pis);
+            if (*pis == 'p')
+                fwrite(pi, 1, 2, stdout);
+            else
+                printf("%c", *pis);
             break;
         default:
             printf("%c", V[i]);
