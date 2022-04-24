@@ -114,6 +114,7 @@ int affiche_bulle(char t[], int s_length, int animation)
                         nanosleep((const struct timespec[]){{0, 50000000L}}, NULL);
                         break;
                     case 2:
+                        // Affiche un caractère dans une couleur en fonction de c
                         printf("\x1b[%im%c", (c % 7 == 0 ? 93 : c % 7 + 90), t[c - 1 + (50 * l)]);
                         break;
                     case 3:
@@ -127,6 +128,7 @@ int affiche_bulle(char t[], int s_length, int animation)
                 }
                 fflush(stdout);
             }
+            // Couleur par défaut
             printf("\x1b[39m");
         }
         putchar('\n');
