@@ -1,7 +1,6 @@
 #include <string.h>
-#include "devine_nombre.h"
 #include "affiche_vache.h"
-#include "reading_cow.h"
+#include "jeux.h"
 
 // Comme il est utilisé par toutes les fonctions, on passe le chemin d'appel en externe
 char ext_path[50];
