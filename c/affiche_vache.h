@@ -43,7 +43,7 @@ char *lire_f_vache(FILE *f)
 }
 
 // Fonction d'animation et affichage
-void clear() { printf("\x1b[H\x1b[J"); }
+void clear() { printf("\x1b[H\x1b[2J"); }
 void gotoxy(int x, int y) { printf("\x1b[%d;%df", x, y); }
 
 // Affiche le contenu du fichier cow_help.txt qui contient le manuel d'utilisation du programme
@@ -115,6 +115,7 @@ int affiche_bulle(char t[], int s_length, int animation)
                         break;
                     case 2:
                         // Affiche un caractère dans une couleur en fonction de c
+                        // On remplace 0 par 93 pour éviter deux caractères blanc à la suite
                         printf("\x1b[%im%c", (c % 7 == 0 ? 93 : c % 7 + 90), t[c - 1 + (50 * l)]);
                         break;
                     case 3:
