@@ -31,10 +31,11 @@ Notez qu'une option est qualifiée de "suffisante" si son utilisation seule perm
 * -l : permet de choisir le caractère utilisé pour la langue
 * -a : permet de choisir le type d'animation et couleurs. Voir "Animations et couleurs" pour les choix possibles.
 * -t : permet de choisir le texte de la bulle de la vache ("Bonjour !" par défaut). Ne prend pas en charge les caractères accentués.
+* -j : (suffisante) essayez de garder votre vache en vie en la nourissant ! Ne prend aucune option.
 * -r : (suffisante) demande à la vache de lire le texte donné avec -t lettre par lettre.
 * -d : (suffisante) permet de jouer à un jeu de devinette avec la vache. Pensez à un nombre et guidez la vache pour qu'elle le trouve.
 * -v : (suffisante) permet de préciser un type de vache à afficher. Voir "Modèles spéciaux" pour les choix possibles.
-* -h : (suffisante) affiche le manuel du programme (mais vous le saviez, puisque vous êtes là).
+* -h : (suffisante) affiche le manuel du programme.
 </div>
 <div id="animations-et-couleurs">
 

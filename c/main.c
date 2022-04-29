@@ -53,6 +53,11 @@ int main(int argc, char const *argv[])
                 lecture(&yeux, &pis, text);
                 break;
 
+            // Pour jouer au tamagoshi
+            case 'j':
+                tamagoshi();
+                break;
+
             // Si modèle par défaut on peut changer yeux et pis
             case 'y':
                 yeux = argv[i][3];
