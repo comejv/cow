@@ -1,8 +1,10 @@
-#ifndef __DEVINE_NOMBRE_H__
-#define __DEVINE_NOMBRE_H__
+#ifndef __JEUX_H__
+#define __JEUX_H__
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <time.h>
 #include "affiche_vache.h"
 
 void devine_nombre(int i, int s, char *yeux, char *pis, char *langue, int *animation)
@@ -39,5 +41,20 @@ void devine_nombre(int i, int s, char *yeux, char *pis, char *langue, int *anima
     printf("Nombre deviné en %i essais !\nMerci d'avoir joué.\n", n);
     exit(0);
 }
+
+void lecture(char *yeux, char *pis, char *text)
+{
+    int s_length = strlen(text);
+    char buff_text[s_length];
+    for (int i = 0; i < s_length; i++)
+    {
+        strncat(buff_text, text + i, 1);
+        afficher_vache_defaut(yeux, pis, &text[i], buff_text, 0);
+        nanosleep((const struct timespec[]){{0, 500000000L}}, NULL);
+    }
+    exit(0);
+}
+
+
 
 #endif
