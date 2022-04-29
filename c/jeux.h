@@ -67,7 +67,7 @@ int entier_aleatoire(int max)
     return (rand() % max);
 }
 
-void tamagoshi()
+void tamagotchi()
 {
     // Var affichage vache
     char yeux = 'o';
