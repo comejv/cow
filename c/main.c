@@ -58,7 +58,7 @@ int main(int argc, char const *argv[])
                 tamagoshi();
                 break;
 
-            // Si modèle par défaut on peut changer yeux et pis
+            // Si modèle par défaut on peut changer yeux, pis et langue
             case 'y':
                 yeux = argv[i][3];
                 break;
